@@ -291,6 +291,7 @@ defaults:
       share: true
       related: true
       toc_sticky: true
+      sidebar_main: true
   # _pages
   - scope:
       path: ""
@@ -298,3 +299,4 @@ defaults:
     values:
       layout: single
       author_profile: true
+      sidebar_main: true
