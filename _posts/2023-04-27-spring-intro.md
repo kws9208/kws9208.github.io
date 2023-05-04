@@ -122,22 +122,22 @@ IntelliJ 우측의 코끼리 모양 아이콘(gradle)을 클릭하면 라이브�
 
 - `spring-boot-starter-web` → `spring-boot-starter-tomcat`  / `spring-webmvc`  
 
-스프링부트는 웹서버 톰캣을 내장하고 있어서 따로 웹서버 설정없이 서버 프로그램을 실행하면 자동으로 웹서버가 실행되고 8080 포트로 접근이 가능하다.  
+    스프링부트는 웹서버 톰캣을 내장하고 있어서 따로 웹서버 설정없이 서버 프로그램을 실행하면 자동으로 웹서버가 실행되고 8080 포트로 접근이 가능하다.  
 
 - `spring-boot-starter-thymeleaf` → `thymeleaf-spring`  
 
-타임리프와 관련된 라이브러리를 가지고 있다.
+    타임리프와 관련된 라이브러리를 가지고 있다.
 
 - `spring-boot-starter` → `spring-boot-starter-logging` / `spring-boot` / `spring-core`  
 
-spring-boot-starter는 스프링 프로젝트를 하면 웬만하면 다 의존관계로 임포트가 된다.   
-스프링부트와 관련된 라이브러리를 쓰면 spring-core까지 스프링과 관련된 라이브러리들을 가져온다.  
+    spring-boot-starter는 스프링 프로젝트를 하면 웬만하면 다 의존관계로 임포트가 된다.   
+    스프링부트와 관련된 라이브러리를 쓰면 spring-core까지 스프링과 관련된 라이브러리들을 가져온다.  
 
-그리고 현업에서는 System.out.println 으로 출력하지 않고 log로 출력하는데 로그를 남겨야 로그들을 따로 보거나 파일로 관리할 수 있기 때문이다. 로깅 라이브러리로 slf4j나 logback을 거의 표준처럼 사용한다.  
+    그리고 현업에서는 System.out.println 으로 출력하지 않고 log로 출력하는데 로그를 남겨야 로그들을 따로 보거나 파일로 관리할 수 있기 때문이다. 로깅 라이브러리로 slf4j나 logback을 거의 표준처럼 사용한다.  
 
 - `spring-boot-starter-test` → `junit5` / `mockito` / `assertj` / `spring-test`  
 
-자바 진영에서 테스트할 때 junit5 라이브러리를 주로 사용한다. mockito나 assertj는 테스트를 편리하게 하는데 도와주는 라이브러리이고 spring-test는 스프링과 통합해서 테스트할 때 도움을 주는 라이브러리이다.  
+    자바 진영에서 테스트할 때 junit5 라이브러리를 주로 사용한다. mockito나 assertj는 테스트를 편리하게 하는데 도와주는 라이브러리이고 spring-test는 스프링과 통합해서 테스트할 때 도움을 주는 라이브러리이다.  
 
 ### View 환경설정
 
