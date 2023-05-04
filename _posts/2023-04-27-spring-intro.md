@@ -1388,6 +1388,7 @@ JPA는 SQL과 데이터 중심 설계에서 객체 중심 설계로 패러다임
 
 ```gradle
 // JPA
+// 스프링부트가 자동으로 EntityManager를 데이터베이스와 연결해서 생성해줌
 implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 ```
 
@@ -1450,18 +1451,26 @@ public class JpaMemberRepository implements MemberRepository{
 
     @Override
     public Member save(Member member) {
+        // persist: 영속화, 영구저장
+        // jpa가 insert 쿼리를 만들어서 db에 저장하고 엔티티에 id까지 설정해줌
         em.persist(member);
         return member;
     }
 
     @Override
     public Optional<Member> findById(Long id) {
+        // find(엔티티 타입, pk값): pk 값으로 엔티티를 찾아줌
+        // jpa가 selct 쿼리를 만들어줌
         Member member = em.find(Member.class, id);
         return Optional.ofNullable(member);
     }
 
     @Override
     public Optional<Member> findByName(String name) {
+        // jpql이라는 객체지향 쿼리 언어를 사용하여 쿼리문을 작성해줘야함
+        // creatQuery(쿼리문, 엔티티 타입): 엔티티를 대상으로 쿼리문을 만듬
+        // 엔티티를 대상으로 쿼리를 날리면 sql로 번역이 됨
+        // select m from Member m: 엔티티 객체 자체를 select 하여 조회함
         List<Member> result = em.createQuery("select m from Member m where m.name = :name", Member.class)
                 .setParameter("name", name)
                 .getResultList();
@@ -1475,10 +1484,14 @@ public class JpaMemberRepository implements MemberRepository{
 }
 ```
 
+pk가 아닌 값으로 접근하는 쿼리는 jpql로 쿼리문을 작성해줘야 한다.
+
 **서비스 계층 트랜잭션 추가**
 
 ```java
 // @Transactional: JPA에서 모든 데이터 변경은 transaction 안에서 실행되어야함
+// 이 어노테이션이 작성된 클래스에 있는 메서드를 실행할 때마다 트랜잭션이 시작됨
+// 트랜잭션에서 메서드가 정상 종료되면 트랜잭션을 커밋하고 런타임 예외가 발생하면 롤백함
 @Transactional
 public class MemberService {}
 ```
@@ -1516,6 +1529,8 @@ public class SpringConfig {
     }
 }
 ```
+
+스프링 데이터 JPA를 사용하면 Hibernate라는 JPA 구현체가 sql 쿼리를 만들어준다.
 
 ### 스프링 데이터 JPA
 
