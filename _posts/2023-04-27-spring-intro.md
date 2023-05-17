@@ -1680,4 +1680,5 @@ AOP 적용 전에는 의존 관계에 따라서 호출한다.
 스프링 컨테이너 AOP가 적용된 클래스에 대해 가짜 스프링 빈을 만들고 프록시를 통해 AOP를 실행한 뒤 joinPoint.proceed()에서 진짜가 호출된다.  
 
 # 참조
+
 - [Inflearn - 스프링 입문 - 코드로 배우는 스프링 부트, 웹 MVC, DB 접근 기술](https://www.inflearn.com/course/%EC%8A%A4%ED%94%84%EB%A7%81-%EC%9E%85%EB%AC%B8-%EC%8A%A4%ED%94%84%EB%A7%81%EB%B6%80%ED%8A%B8)
